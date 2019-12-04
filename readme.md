@@ -17,4 +17,4 @@ Then open http://127.0.0.1:3000
 
 Docker Image contain one dashboard named "NTP Offset"
 
-![grafana][grafana-ntp.png]
+![grafana](grafana-ntp.png)
