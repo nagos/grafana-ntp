@@ -1,4 +1,4 @@
-# NTP Offset minitoring with Grafana
+# NTP Offset monitoring with Grafana
 
 Test application for monitoring ntp server offset
 
@@ -13,7 +13,8 @@ and run
 
 Then open http://127.0.0.1:3000
     
-    username:admin password: admin
+    username:admin
+    password: admin
 
 Docker Image contain one dashboard named "NTP Offset"
 
