@@ -1,0 +1,23 @@
+version: "2"
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: always
+    volumes:
+      - ./provisioning:/etc/grafana/provisioning
+    ports:
+      - 3000:3000
+  influxdb:
+    image: influxdb
+    container_name: influxdb
+    restart: always
+    ports:
+      - 8086:8086
+    environment:
+      - INFLUXDB_DB=mydb
+  ntpinflux:
+    container_name: ntpinfluxdb
+    restart: always
+    build: ntp-influxdb
+    command: ["python", "-u", "./ntp-influxdb.py", "pool.ntp.org", "influxdb", "8086"]
