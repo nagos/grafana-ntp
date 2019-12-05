@@ -42,7 +42,7 @@ if __name__ == "__main__":
         while True:
                 try:
                         offset = get_offset(ntpsever)
-                        print("Offset from %s: %d us" % (ntpsever, offset*1000))
+                        print("Offset from %s: %d ms" % (ntpsever, offset*1000))
                         send_influxdb(influxdbaddr, influxdbport, offset)
                 except:
                         pass
