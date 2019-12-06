@@ -5,6 +5,6 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY ntp-influxdb.py .
 
-CMD ["python", "-u", "./ntp-influxdb.py", "pool.ntp.org", "influxdb", "8086"]
+CMD ["python", "-u", "./ntp-influxdb.py", "influxdb", "8086"]

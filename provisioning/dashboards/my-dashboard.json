@@ -15,6 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
+  "iteration": 1575627194245,
   "links": [],
   "panels": [
     {
@@ -59,13 +60,19 @@
       "steppedLine": false,
       "targets": [
         {
-          "alias": "Offset",
+          "alias": "$tag_host",
           "groupBy": [
             {
               "params": [
-                "1s"
+                "$__interval"
               ],
               "type": "time"
+            },
+            {
+              "params": [
+                "host"
+              ],
+              "type": "tag"
             },
             {
               "params": [
@@ -94,51 +101,13 @@
               }
             ]
           ],
-          "tags": []
-        },
-        {
-          "alias": "Offset 1m",
-          "groupBy": [
+          "tags": [
             {
-              "params": [
-                "1s"
-              ],
-              "type": "time"
-            },
-            {
-              "params": [
-                "linear"
-              ],
-              "type": "fill"
+              "key": "host",
+              "operator": "=~",
+              "value": "/^$host$/"
             }
-          ],
-          "hide": false,
-          "measurement": "ntp_offset",
-          "orderByTime": "ASC",
-          "policy": "default",
-          "refId": "B",
-          "resultFormat": "time_series",
-          "select": [
-            [
-              {
-                "params": [
-                  "value"
-                ],
-                "type": "field"
-              },
-              {
-                "params": [],
-                "type": "mean"
-              },
-              {
-                "params": [
-                  "60"
-                ],
-                "type": "moving_average"
-              }
-            ]
-          ],
-          "tags": []
+          ]
         }
       ],
       "thresholds": [],
@@ -189,10 +158,38 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "text": "All",
+          "value": [
+            "$__all"
+          ]
+        },
+        "datasource": "Influxdb",
+        "definition": "SHOW TAG VALUES WITH KEY = \"host\"",
+        "hide": 0,
+        "includeAll": true,
+        "label": "NTP Server",
+        "multi": true,
+        "name": "host",
+        "options": [],
+        "query": "SHOW TAG VALUES WITH KEY = \"host\"",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-15m",
     "to": "now"
   },
   "timepicker": {
@@ -212,5 +209,5 @@
   "timezone": "",
   "title": "NTP Offset",
   "uid": "gN5W2vaZk",
-  "version": 2
+  "version": 1
 }

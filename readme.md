@@ -3,9 +3,10 @@
 Test application for monitoring ntp server offset
 
 ## Installation
-Change ntp address pool.ntp.org in docker-compose.yml 
+Create hostlist.txt with list of NTP servers:
 
-    command: ["python", "-u", "./ntp-influxdb.py", "pool.ntp.org", "influxdb", "8086"]
+    pool.ntp.org
+    europe.pool.ntp.org
 
 and run
 

@@ -1,0 +1,2 @@
+pool.ntp.org
+europe.pool.ntp.org

@@ -15,4 +15,5 @@ services:
   ntpinflux:
     container_name: ntpinfluxdb
     build: ntp-influxdb
-    command: ["python", "-u", "./ntp-influxdb.py", "pool.ntp.org", "influxdb", "8086"]
+    volumes:
+      - ./hostlist.txt:/usr/src/app/hostlist.txt
