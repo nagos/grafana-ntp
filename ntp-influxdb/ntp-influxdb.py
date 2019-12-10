@@ -44,13 +44,13 @@ if __name__ == "__main__":
         print("NTP test application")
 
         while True:
-                try:
-                        for ntpserver in read_hostlist():
+                for ntpserver in read_hostlist():
+                        try:
                                 if len(ntpserver) > 0:
                                         offset = get_offset(ntpserver)
                                         print("Offset from %s: %d ms" % (ntpserver, offset*1000))
                                         send_influxdb(influxdbaddr, influxdbport, offset, ntpserver)
-                except:
-                        pass
+                        except:
+                                pass
                 time.sleep(10)
 
